@@ -17,19 +17,31 @@ Features:
   * Sets up your reshade.ini for you based on the above features.
 
 Prerequisites:
+
   1.) You'll need a means of executing a Bash script (I recommend Git Bash - https://gitforwindows.org/ since it's easy to setup). Install with defaults AND symlink support.
+  
   2.) Because Windows tightly manages who can create symlinks, you'll need to do one of the following things for symlink functionality to work (Linux users can ignore this):
+  
     A.) (Recommended 1) Execute the script as administrator.  If you can't right click and execute as admin, you'll need to execute the script from an elevated Git Bash terminal.
+    
     B.) (Recommended 2) Enable UWP Developer Mode.  To do this, open the start menu and type developer settings.  The option is available there.  For some reason this setting also allows admin accounts to create symlinks.  Security implications are extremely minimal, this is the method I use.
+    
     C.) (**NOT** Recommended) Disable User Account Control.  This is a big security no no, only do this if you know what you're doing, and I'm basically including this option only for the people that have disabled it already.
+    
   2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means, ignore it).
   
 Initial Setup:
+
   1.) Open the script in the text editor of your choice (I recommend notepad++, but regular notepad will work fine if that's all you have).
+  
   2.) Modify the paths to reflect the directories you'd like to use.  
     *Note: Any paths you include here will be generated for you, the directories don't need to exist in advance.*
     *Note 2: If you use any modified ReShade dlls, you'll need to provide those yourself.*
+    
 How to use:
+
   1.) Place the script in the game directory with the game's .exe file.  Double click to execute (assuming Git Bash).
+  
   2.) Follow the steps as they pop up in the terminal.
+  
   3.) Reshade is installed!
