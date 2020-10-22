@@ -28,7 +28,7 @@ Prerequisites:
     
     C.) (**NOT** Recommended) Disable User Account Control.  This is a big security no no, only do this if you know what you're doing, and I'm basically including this option only for the people that have disabled it already.
     
-  2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means, ignore it).
+  2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means and you're on Windows, ignore it).
   
 Initial Setup:
 
