@@ -1,5 +1,3 @@
-#I'm bad with powershell and this is my horribly written script to download all the reshade shaders (well, most of em).  If you're reading my code, I apologize in advance.
-
 #Create reshade-shaders directory
 [int]$user = Read-Host -Prompt "1 = Update existing and install new shaders | 2 = Update existing shaders"
 if(($user -ne 1) -and ($user -ne 2)){
