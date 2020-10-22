@@ -4,6 +4,7 @@ In this repository are a handful of scripts I've written to make life a bit easi
 This PowerShell script downloads all the well known shader repositories from github and organizes them in a reshade-shaders folder for you, fully collapsed under Shaders and Textures folders.  The script is also capable of updating only preexisting shaders, for those that like to maintain a more curated list of shaders but want an easy way to ensure they have the latest versions available.  This script is intended for use with a centralized reshade-shaders folder that you point all games towards, though it can be used for other purposes.
 
 **How to use:**
+
   Drop the script in the directory you'd like to create \reshade-shaders\ in.  Right click, "Run with PowerShell", and complete the prompts.
 # Install-Reshade
 This Bash script enables you to far more easily use reshade from a centralized location.  It should get you most of the way there on Linux installs as well!  This script requires a bit of setup, but once that's done it's a lightning fast way to install reshade for all your games.  
