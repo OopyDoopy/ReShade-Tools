@@ -7,7 +7,7 @@ This PowerShell script downloads all the well known shader repositories from git
 
   Drop the script in the directory you'd like to create \reshade-shaders\ in.  Right click, "Run with PowerShell", and complete the prompts.
 # Install-Reshade
-This Bash script enables you to far more easily use reshade from a centralized location.  It should get you most of the way there on Linux installs as well!  This script requires a bit of setup, but once that's done it's a lightning fast way to install reshade for all your games.  
+This Bash script enables you to far more easily use reshade from a centralized location.  It should get you most of the way there on Linux installs as well!  This script requires a bit of setup, but once that's done it's a lightning fast way to install reshade.
 Since I'm not a Linux user (not for gaming anyway), I'll need user feedback for how to improve that experience.
 
 **Features:**
