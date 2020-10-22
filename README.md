@@ -23,11 +23,9 @@ Since I'm not a Linux user (not for gaming anyway), I'll need user feedback for 
   
   2.) Because Windows tightly manages who can create symlinks, you'll need to do one of the following things for symlink functionality to work (Linux users can ignore this):
   
-    A.) (Recommended 1) Execute the script as administrator every time you run it.  If you can't right click and execute as admin, you'll need to execute the script from an elevated Git Bash terminal.
+    A.) Execute the script as administrator every time you run it.  If you can't right click and execute as admin, you'll need to execute the script from an elevated Git Bash terminal.
     
-    B.) (Recommended 2) Enable UWP Developer Mode.  To do this, open the start menu and type developer settings.  The option is available there.  For some reason this setting also allows admin accounts to create symlinks.  Security implications are extremely minimal, this is the method I use.
-    
-    C.) (**NOT** Recommended) Disable User Account Control.  This is a big security no no, only do this if you know what you're doing, and I'm basically including this option only for the people that have disabled it already.
+    B.) Enable UWP Developer Mode.  To do this, open the start menu and type developer settings.  The option is available there.  For some reason this setting also allows admin accounts to create symlinks.  Security implications are extremely minimal, this is the method I use.
     
   2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means and you're on Windows, ignore it).
   
