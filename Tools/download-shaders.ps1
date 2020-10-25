@@ -1,3 +1,37 @@
+#----------------------FUNCTIONS BEGIN HERE-------------------------
+
+function extractShaders{
+	foreach ($file in Get-ChildItem .\temp238698092)
+	{
+		if(($file.Name -match '\.fx') -or ($file.name -match '\.cfg'))
+		{
+			if(($user -eq 2) -AND (Test-Path -path ".\reshade-shaders\Shaders\$file" -PathType Leaf)){
+				Move-Item -Path $file.FullName -Destination .\temp238698092\Shaders
+			}
+			elseif ($user -eq 1){
+				Move-Item -Path $file.FullName -Destination .\temp238698092\Shaders
+			}
+		}	  
+	}
+}
+
+function extractTextures{
+	foreach ($file in Get-ChildItem .\temp238698092)
+	{
+		if(($file.Name -match '\.png') -or ($file.name -match '\.dds') -or ($file.name -match '\.bmp') -or ($file.name -match '\.jp*g'))
+		{
+			if(($user -eq 2) -AND (Test-Path -path ".\reshade-shaders\Shaders\$file" -PathType Leaf)){
+				Move-Item -Path $file.FullName -Destination .\temp238698092\Textures
+			}
+			elseif ($user -eq 1){
+				Move-Item -Path $file.FullName -Destination .\temp238698092\Textures
+			}
+		}  
+	}
+}
+
+#----------------------FUNCTIONS END HERE----------------------------
+
 #Create reshade-shaders directory
 [int]$user = Read-Host -Prompt "1 = Update existing and install new shaders | 2 = Update existing shaders"
 if(($user -ne 1) -and ($user -ne 2)){
@@ -51,8 +85,8 @@ if($legacy -eq 1){ #Because these shaders aren't maintained, extract and move th
 	Get-ChildItem '.\temp238698092' -Filter legacy.zip | Expand-Archive -DestinationPath '.\temp238698092' -Force
 	del .\temp238698092\legacy.zip
 	del .\temp238698092\reshade-shaders-master\shaders\mxao.fx
-	Move-Item -Path .\temp238698092\reshade-shaders-master\shaders\* -Destination .\reshade-shaders\Shaders -Force
-	Move-Item -Path .\temp238698092\reshade-shaders-master\textures\* -Destination .\reshade-shaders\Textures -Force
+	extractShaders
+	extractTextures
 }
 Get-ChildItem '.\temp238698092' -Filter *.zip | Expand-Archive -DestinationPath '.\temp238698092' -Force
 del .\temp238698092\*.zip
@@ -60,15 +94,10 @@ del .\temp238698092\*.zip
 #Maintain Exceptions
 #Handle FXShaders requirements
 if($FXShaders -eq 1){
-    if(!(Test-Path -path "reshade-shaders\Shaders\FXShaders" -PathType Container)){
+    if((!(Test-Path -path "reshade-shaders\Shaders\FXShaders" -PathType Container)) -and ($user -eq 1) ){
 		New-Item -Path ".\" -Name "reshade-shaders\Shaders\FXShaders" -ItemType "directory"
     }
-    Move-Item -Path .\temp238698092\FXShaders-master\Shaders\FXShaders\* -Destination .\reshade-shaders\Shaders\FXShaders -Force
-}
-else{
-    if(Test-Path -path "reshade-shaders\Shaders\FXShaders" -PathType Container){
-        Move-Item -Path .\temp238698092\FXShaders-master\Shaders\FXShaders\* -Destination .\reshade-shaders\Shaders\FXShaders -Force
-    }
+    extractShaders
 }
 
 #Remove Lord of Lunacy jank
@@ -110,30 +139,8 @@ Get-ChildItem .\temp238698092 -Recurse | `
 New-Item -Path ".\temp238698092" -Name "Shaders" -ItemType "directory"
 New-Item -Path ".\temp238698092" -Name "Textures" -ItemType "directory"
 
-foreach ($file in Get-ChildItem .\temp238698092)
-{
-    if(($file.Name -match '\.fx') -or ($file.name -match '\.cfg'))
-    {
-        if(($user -eq 2) -AND (Test-Path -path ".\reshade-shaders\Shaders\$file" -PathType Leaf)){
-            Move-Item -Path $file.FullName -Destination .\temp238698092\Shaders
-        }
-        elseif ($user -eq 1){
-            Move-Item -Path $file.FullName -Destination .\temp238698092\Shaders
-        }
-    }  
-}
-foreach ($file in Get-ChildItem .\temp238698092)
-{
-    if(($file.Name -match '\.png') -or ($file.name -match '\.dds') -or ($file.name -match '\.bmp') -or ($file.name -match '\.jp*g'))
-    {
-        if(($user -eq 2) -AND (Test-Path -path ".\reshade-shaders\Shaders\$file" -PathType Leaf)){
-            Move-Item -Path $file.FullName -Destination .\temp238698092\Textures
-        }
-        elseif ($user -eq 1){
-            Move-Item -Path $file.FullName -Destination .\temp238698092\Textures
-        }
-    }  
-}
+extractShaders
+extractTextures
 
 Remove-Item .\temp238698092\*.*
 
@@ -142,4 +149,4 @@ Move-Item -Path ".\temp238698092\Shaders\*" -Destination .\reshade-shaders\Shade
 Move-Item -Path ".\temp238698092\Textures\*" -Destination .\reshade-shaders\Textures -Force
 Remove-Item .\temp238698092 -Recurse
 
-Read-Host -Prompt "Shaders successfully installed/updated (even if you see some errors).  Press Enter to exit"
+Read-Host -Prompt "Shaders successfully installed/updated.  Press Enter to exit"
