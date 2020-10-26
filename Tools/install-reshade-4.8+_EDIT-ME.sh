@@ -17,7 +17,7 @@ mdlls='C:\mods\reshade\reshade-files-mod'				# Location for modified reshade fil
 shaders='C:\mods\reshade\reshade-shaders\shaders' 		# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
 textures='C:\mods\reshade\reshade-shaders\textures' 		# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
 presets='C:\mods\reshade\presets' 						# A unique folder will be created on install via the given games name entered during script execution.
-screenshots='E:\screenshots'				# A unique folder will be created on install via the given games name entered during script execution.
+screenshots='C:\mods\reshade\screenshots'				# A unique folder will be created on install via the given games name entered during script execution.
 
 sevenzip='C:\Program Files\7-Zip\' 					# Only modify if you have 7-Zip installed to the non-default directory.  This is the only path that should have a trailing slash.
 
