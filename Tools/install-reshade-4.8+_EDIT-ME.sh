@@ -125,7 +125,7 @@ else
   echo '[GENERAL]
 EffectSearchPaths='"$shaders"'
 PerformanceMode=0
-PreprocessorDefinitions=
+PreprocessorDefinitions=RESHADE_DEPTH_INPUT_IS_REVERSED=0,RESHADE_DEPTH_INPUT_IS_LOGARITHMIC=0,RESHADE_DEPTH_INPUT_IS_UPSIDE_DOWN=0,RESHADE_DEPTH_LINEARIZATION_FAR_PLANE=1000
 PresetPath=CurrentPresetPath='"$presets"'\'"$game"'\ReshadePreset.ini
 PresetTransitionDelay=1000
 SkipLoadingDisabledEffects=0
