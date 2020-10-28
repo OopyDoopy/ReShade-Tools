@@ -73,3 +73,8 @@ Pretty happy to be the first person to try to make this less awful!  This script
   2.) Execute the script and *very carefully* follow the instructions.
   
   3.) Reshade is setup once the script is finished.  When done, a Powershell script will be generated on your Desktop.  This will be your new shortcut to launch the game with reshade.
+  
+**Planned Features:**
+  
+  * Attempt to parse the file for the relevant PackageFamilyName based on input from the user, with the current manual method as a backup.  There are plenty of examples where the PackageFamilyName isn't even the game's name, so this feature is on the backburner.
+  * Attempt to guess which exe file to use for injection script, with the current manual method as a backup.  Many games, particularly UE4 titles, don't launch with the same exe that the game actually runs off of, which means this wouldn't always work.  Because of that, it's on the backburner as well.
