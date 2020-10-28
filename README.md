@@ -44,3 +44,32 @@ Since I'm not a Linux user (not for gaming anyway), I'll need user feedback for 
   2.) Follow the steps as they pop up in the terminal.
   
   3.) Reshade is installed!
+
+# Install-Reshade-UWP (In testing)
+Pretty happy to be the first person to try to make this less awful!  This script works similarly to the above script, but designed to make using reshade in UWP games much easier.  It includes all the features listed for Install-Reshade, and also shares the same requirements.
+
+**Prerequisites:**
+
+  1.) You'll need a means of executing a Bash script (I recommend Git Bash - https://gitforwindows.org/ since it's easy to setup). Install with defaults AND symlink support.
+  
+  2.) Because Windows tightly manages who can create symlinks, you'll need to do one of the following things for symlink functionality to work (Linux users can ignore this):
+  
+    A.) Execute the script as administrator every time you run it.  If you can't right click and execute as admin, you'll need to execute the script from an elevated Git Bash terminal.
+    
+    B.) Enable UWP Developer Mode.  To do this, open the start menu and type developer settings.  The option is available there.  For some reason this setting also allows admin accounts to create symlinks.  Security implications are extremely minimal, this is the method I use.
+    
+  2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means and you're on Windows, ignore it).
+  
+**Initial Setup:**
+
+  1.) Open the script in the text editor of your choice (I recommend notepad++, but regular notepad will work fine if that's all you have).
+  
+  2.) Modify the paths to reflect the directories you'd like to use.  The presets folder will be the working directory for reshade.<br>*Note: Any paths you include here will be generated for you, the directories don't need to exist in advance.*<br>*Note 2: If you use any modified ReShade dlls, you'll need to provide those yourself.*
+  
+**How to use:**
+
+  1.) Place the script somewhere safe, you'll want to use it to setup any UWP game.  It can be executed from any location and function correctly.
+  
+  2.) Execute the script and *very carefully* follow the instructions.
+  
+  3.) Reshade is setup once the script is finished.  When done, a Powershell script will be generated on your Desktop.  This will be your new shortcut to launch the game with reshade.
