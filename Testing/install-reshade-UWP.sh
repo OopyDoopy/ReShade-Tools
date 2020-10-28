@@ -14,12 +14,12 @@
 
 dlls='C:\mods\reshade\reshade-files'					# This is where the script will Download and Extract the reshade DLLs.  Alternatively, this is where you can manually provide them.
 mdlls='C:\mods\reshade\reshade-files-mod'				# Location for modified reshade files.  These need to be provided yourself.
-shaders='C:\mods\reshade\reshade-shaders\shaders' 		# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
-textures='C:\mods\reshade\reshade-shaders\textures' 	# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
-presets='C:\mods\reshade\presets' 						# A unique folder will be created on install via the given games name entered during script execution.
+shaders='C:\mods\reshade\reshade-shaders\shaders' 			# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
+textures='C:\mods\reshade\reshade-shaders\textures' 			# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
+presets='C:\mods\reshade\presets' 					# A unique folder will be created on install via the given games name entered during script execution.
 screenshots='C:\mods\reshade\screenshots'				# A unique folder will be created on install via the given games name entered during script execution.
 
-injector='C:\mods\reshade\injector'						#Path to keep inject32.exe and inject64.exe
+injector='C:\mods\reshade\injector'					# Path to keep inject32.exe and inject64.exe
 
 sevenzip='C:\Program Files\7-Zip' 					# Only modify if you have 7-Zip installed to the non-default directory.
 
