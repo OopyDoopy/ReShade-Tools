@@ -14,12 +14,12 @@
 
 dlls='C:\mods\reshade\reshade-files'					# This is where the script will Download and Extract the reshade DLLs.  Alternatively, this is where you can manually provide them.
 mdlls='C:\mods\reshade\reshade-files-mod'				# Location for modified reshade files.  These need to be provided yourself.
-shaders='C:\mods\reshade\reshade-shaders\shaders' 			# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
-textures='C:\mods\reshade\reshade-shaders\textures' 			# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
-presets='C:\mods\reshade\presets' 					# A unique folder will be created on install via the given games name entered during script execution.
+shaders='C:\mods\reshade\reshade-shaders\shaders' 		# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
+textures='C:\mods\reshade\reshade-shaders\textures' 	# Please download latest shaders from 'https://github.com/crosire/reshade-shaders/tree/master' or use the 'download-shaders.ps1'
+presets='C:\mods\reshade\presets' 						# A unique folder will be created on install via the given games name entered during script execution.
 screenshots='C:\mods\reshade\screenshots'				# A unique folder will be created on install via the given games name entered during script execution.
 
-injector='C:\mods\reshade\injector'					# Path to keep inject32.exe and inject64.exe
+injector='C:\mods\reshade\injector'						#Path to keep inject32.exe and inject64.exe
 
 sevenzip='C:\Program Files\7-Zip' 					# Only modify if you have 7-Zip installed to the non-default directory.
 
@@ -94,7 +94,7 @@ echo
 
 #Open the program's appxmanifest.xml and search for the application id
 fullpackagename=$(grep -B 1 "$packagename" UWP-App-List.txt | head -1 | sed -r 's/PackageFullName\s+\:\s+//') #grep for user provided packagefamilyname, grab line before it, pass to head to cut off subsequent lines, pass to sed to remove unnecessary text.
-appid=$(grep -oP "(?<=<Application Id=\").[a-zA-Z\.]+" 'C:\Program Files\WindowsApps\'"$fullpackagename"'\appxmanifest.xml') #open relevant appxmanifest.xml and regex the app id
+appid=$(grep -oP "(?<=<Application Id=\").[A-Za-z0-9\!\@\#\$\%\^\&\*\.]+" 'C:\Program Files\WindowsApps\'"$fullpackagename"'\appxmanifest.xml') #open relevant appxmanifest.xml and regex the app id
 echo 'Deleting UWP-App-List.txt now'
 rm UWP-App-List.txt
 
@@ -191,7 +191,7 @@ if [ -e "$desktoppath"'\'"$game"' with Reshade.ps1' ]
 then
 	echo 'Powershell script to launch the game already exists.  File has not been modified.'
 else
-	echo 'cd '"$presets"'\'"$game"'
+	echo 'cd '"'$presets"'\'"$game'"'
 Start-Process -FilePath inject.exe '"$executable"'
 Start-Process -FilePath explorer.exe shell:appsFolder\'"$packagename"'!'"$appid" > "$desktoppath"'\'"$game"' with Reshade.ps1'
 fi
