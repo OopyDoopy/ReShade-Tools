@@ -76,5 +76,6 @@ Pretty happy to be the first person to try to make this less awful!  This script
   
 **Planned Features:**
   
-  * Attempt to parse the file for the relevant PackageFamilyName based on input from the user, with the current manual method as a backup.  There are plenty of examples where the PackageFamilyName isn't even the game's name, so this feature is on the backburner.
-  * Attempt to guess which exe file to use for injection script, with the current manual method as a backup.  Many games, particularly UE4 titles, don't launch with the same exe that the game actually runs off of, which means this wouldn't always work.  Because of that, it's on the backburner as well.
+  * Attempt to parse the file for the relevant PackageFamilyName based on input from the user.
+  * Attempt to guess which exe file to use for injection script, with the current manual method as a backup.  Many games, particularly UE4 titles, don't launch with the same exe that the game actually runs off of, which means this wouldn't always work.  Because of that, it's on the backburner.
+  * Support multiple launch options in the generated powershell script itself (for example: Halo MCC supports launching with or without EAC enabled).  Currently, there's an accidental feature (definitely not a bug) that puts all launch options in the powershell script in a functional way, so you can swap out your launch options by editing the powershell script.
