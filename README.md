@@ -29,7 +29,7 @@ Since I'm not a Linux user (not for gaming anyway), I'll need user feedback for 
     
     B.) Enable UWP Developer Mode.  To do this, open the start menu and type developer settings.  The option is available there.  For some reason this setting also allows admin accounts to create symlinks.  Security implications are extremely minimal, this is the method I use.
     
-  2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means and you're on Windows, ignore it).
+  2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  You'll have to edit the path if you didn't install to the default location.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means and you're on Windows, ignore it).
   
 **Initial Setup:**
 
@@ -52,13 +52,13 @@ Pretty happy to be the first person to try to make this less awful!  This script
 
   1.) You'll need a means of executing a Bash script (I recommend Git Bash - https://gitforwindows.org/ since it's easy to setup). Install with defaults AND symlink support.
   
-  2.) Because Windows tightly manages who can create symlinks, you'll need to do one of the following things for symlink functionality to work (Linux users can ignore this):
+  2.) Because Windows tightly manages who can create symlinks, you'll need to do one of the following things for symlink functionality to work:
   
     A.) Execute the script as administrator every time you run it.  If you can't right click and execute as admin, you'll need to execute the script from an elevated Git Bash terminal.
     
     B.) Enable UWP Developer Mode.  To do this, open the start menu and type developer settings.  The option is available there.  For some reason this setting also allows admin accounts to create symlinks.  Security implications are extremely minimal, this is the method I use.
     
-  2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means and you're on Windows, ignore it).
+  2.) You'll also need 7-Zip (https://www.7-zip.org/) installed.  By default, it's configured to work with the default install path for Windows machines.  You'll have to edit the path if you didn't install to the default location.  If you have 7-Zip setup in your PATH variables, edit the variable at the top of the script to be empty (if you don't know what this means, ignore it).
   
 **Initial Setup:**
 
