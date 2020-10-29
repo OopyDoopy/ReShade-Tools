@@ -49,6 +49,7 @@ Since I'm not a Linux user (not for gaming anyway), I'll need user feedback for 
 Pretty happy to be the first person to try to make this less awful!  This script works similarly to the above script, but designed to make using reshade in UWP games much easier.  It includes all the features listed for Install-Reshade, and also shares the same requirements.
 
 **Limitations**
+
   Because this works using memory injection via crosire's reshade injector, it will most likely only work in games that lack anti-cheat all together.  Most multiplayer games will not work with this, even if they'd normally work with the wrapper installation that's regularly used for reshade.  For example: Halo MCC works if you install the wrapper variant through the modifiablewindowsapps folder even with EAC active, but the memory injection method *only* works if you launch without EAC.  So keep this in mind when you try out games.
 
 **Prerequisites:**
