@@ -38,7 +38,6 @@ if(($user -ne 1) -and ($user -ne 2)){
 	Read-Host -Prompt "Invalid input, press enter to exit script"
 	Exit
 }
-$temp="temp238698092"
 if(!(Test-Path -path "temp238698092" -PathType Container)){New-Item -Path ".\" -Name "temp238698092" -ItemType "directory"}
 if(!(Test-Path -path "reshade-shaders" -PathType Container)){New-Item -Path ".\" -Name "reshade-shaders" -ItemType "directory"}
 if(!(Test-Path -path "reshade-shaders\Shaders" -PathType Container)){New-Item -Path ".\" -Name "reshade-shaders\Shaders" -ItemType "directory"}
@@ -60,8 +59,8 @@ if ($user -eq 1){ #if user just wants to update shaders, don't prompt for repos
 
 #Download repositories
 $client = new-object System.Net.WebClient
-	echo "Downloading respositories, please wait"
-	if($user1 -eq 2){echo "Select repos to download: 1 = Yes | 0 = No"}
+	Write-Outpute-Output "Downloading respositories, please wait"
+	if($user1 -eq 2){Write-Output "Select repos to download: 1 = Yes | 0 = No"}
 	if(($user1 -eq 1) -or ((Read-Host -Prompt "qUINT") -eq 1)){$client.DownloadFile("https://github.com/martymcmodding/qUINT/archive/master.zip",".\temp238698092\quint.zip")}
 	if(($user1 -eq 1) -or ((Read-Host -Prompt "Crosire") -eq 1)){$client.DownloadFile("https://github.com/crosire/reshade-shaders/archive/slim.zip",".\temp238698092\slim.zip")}
 	if(($user1 -eq 1) -or ((Read-Host -Prompt "Crosire Legacy") -eq 1)){$client.DownloadFile("https://github.com/crosire/reshade-shaders/archive/master.zip",".\temp238698092\legacy.zip")}
@@ -83,13 +82,13 @@ $client = new-object System.Net.WebClient
 #Unzip all archives, delete zips, and move all folders that should be preserved
 if($legacy -eq 1){ #Because these shaders aren't maintained, extract and move this first so that subsequent repos can overwrite
 	Get-ChildItem '.\temp238698092' -Filter legacy.zip | Expand-Archive -DestinationPath '.\temp238698092' -Force
-	del .\temp238698092\legacy.zip
-	del .\temp238698092\reshade-shaders-master\shaders\mxao.fx
+	Remove-Item .\temp238698092\legacy.zip
+	Remove-Item .\temp238698092\reshade-shaders-master\shaders\mxao.fx
 	extractShaders
 	extractTextures
 }
 Get-ChildItem '.\temp238698092' -Filter *.zip | Expand-Archive -DestinationPath '.\temp238698092' -Force
-del .\temp238698092\*.zip
+Remove-Item .\temp238698092\*.zip
 
 #Maintain Exceptions
 #Handle FXShaders requirements
@@ -101,12 +100,12 @@ if($FXShaders -eq 1){
 }
 
 #Remove Lord of Lunacy jank
-Get-ChildItem .\temp238698092 -Recurse | Where{$_.Name -Match "DevShaders"} | Remove-Item -Recurse
-Get-ChildItem .\temp238698092 -Recurse | Where{$_.Name -Match "OldShaders"} | Remove-Item -Recurse
+Get-ChildItem .\temp238698092 -Recurse | Where-Object{$_.Name -Match "DevShaders"} | Remove-Item -Recurse
+Get-ChildItem .\temp238698092 -Recurse | Where-Object{$_.Name -Match "OldShaders"} | Remove-Item -Recurse
 
 #Keep correct ReShade.fxh/ReShadeUI.fxh (some repositories have old ones for some reason)
 Move-Item -Path .\temp238698092\reshade-shaders-slim\Shaders\ReShade*.fxh -Destination .\reshade-shaders\Shaders -Force
-Get-ChildItem .\temp238698092 -Recurse | Where{$_.Name -Match "ReShade*.fxh"} | Remove-Item
+Get-ChildItem .\temp238698092 -Recurse | Where-Object{$_.Name -Match "ReShade*.fxh"} | Remove-Item
 
 #Move licenses to their own folder and rename them to be identifiable
 if(!(Test-Path -path "reshade-shaders\LICENSES" -PathType Container)){New-Item -Path ".\reshade-shaders" -Name "LICENSES" -ItemType "directory"}
