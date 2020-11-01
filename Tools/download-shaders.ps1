@@ -59,7 +59,7 @@ if ($user -eq 1){ #if user just wants to update shaders, don't prompt for repos
 
 #Download repositories
 $client = new-object System.Net.WebClient
-	Write-Outpute-Output "Downloading respositories, please wait"
+Write-Output "Downloading respositories, please wait"
 	if($user1 -eq 2){Write-Output "Select repos to download: 1 = Yes | 0 = No"}
 	if(($user1 -eq 1) -or ((Read-Host -Prompt "qUINT") -eq 1)){$client.DownloadFile("https://github.com/martymcmodding/qUINT/archive/master.zip",".\temp238698092\quint.zip")}
 	if(($user1 -eq 1) -or ((Read-Host -Prompt "Crosire") -eq 1)){$client.DownloadFile("https://github.com/crosire/reshade-shaders/archive/slim.zip",".\temp238698092\slim.zip")}
